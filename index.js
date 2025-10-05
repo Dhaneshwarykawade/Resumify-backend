@@ -19,6 +19,13 @@ const genAI = new GoogleGenerativeAI(process.env.GOOGLE_AI_API_KEY);
 // Multer for handling file uploads (in memory)
 const upload = multer();
 
+app.get("/", async (req, res) => {
+  return res.json({
+    status: "200",
+    message: "Api is working",
+  });
+});
+
 /* ------------------------- 1. TEXT-BASED ANALYSIS ------------------------- */
 app.post("/api/analyzeResume", async (req, res) => {
   const { resumeText } = req.body;
