@@ -33,7 +33,7 @@ app.post("/api/analyzeResume", async (req, res) => {
     return res.status(400).json({ error: "No resume text provided" });
 
   try {
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
     const prompt = `You are an AI assistant that strictly returns JSON. Respond ONLY in JSON format like this: {"score":75,"keywords":["word1","word2"],"suggestions":["tip1","tip2"]}
 
@@ -101,7 +101,7 @@ app.post(
         return res.status(400).json({ error: "Unsupported file type" });
       }
 
-      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+      const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
       const prompt = `You are an AI assistant that strictly returns JSON. Respond ONLY in JSON format like this: {"score":75,"keywords":["word1","word2"],"suggestions":["tip1","tip2"]}
 
@@ -129,7 +129,7 @@ Resume: ${text}`;
 /* ------------------------- 3. FETCH LANGUAGES ------------------------- */
 app.get("/api/languages", async (req, res) => {
   try {
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
     const prompt = `List all the languages that are supported by gemini and can be translated without any problems with their ISO codes.
 Respond ONLY in JSON format like this:
@@ -168,7 +168,7 @@ app.get("/api/labels/:lang", async (req, res) => {
   console.log(lang);
 
   try {
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
     // ✅ Define your form labels in English
     const labels = [
@@ -269,7 +269,7 @@ app.listen(5000, () =>
 app.post("/api/translateResume", async (req, res) => {
   try {
     const { resumeData, targetLang } = req.body;
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
     const prompt = `
       Translate the following resume data object values into language code ${targetLang}:
