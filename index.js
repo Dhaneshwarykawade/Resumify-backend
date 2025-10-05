@@ -8,7 +8,7 @@ import pdfParse from "pdf-parse/lib/pdf-parse.js";
 
 dotenv.config();
 const app = express();
-app.use(cors({ origin: "http://localhost:5173" })); // your React port
+app.use(cors({ origin: "https://ai-resumify.netlify.app/" })); // your React port
 
 app.use(cors());
 app.use(express.json());
